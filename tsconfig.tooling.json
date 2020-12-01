@@ -2,11 +2,14 @@
   "$schema": "http://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
     "types": ["webpack", "node", "webpack-env"],
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "include": ["webpack", "webpack.config.ts"],
+  "include": [
+    "webpack",
+    "webpack.config.babel.ts"
+  ],
   "exclude": ["src"]
 }

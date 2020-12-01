@@ -1,6 +1,6 @@
 import {join} from 'path';
 import {isDev, rootDir} from '../utils/env';
-import ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import {ForkTsCheckerWebpackPluginOptions} from "fork-ts-checker-webpack-plugin/lib/ForkTsCheckerWebpackPluginOptions";
 
 const config: ForkTsCheckerWebpackPluginOptions = {

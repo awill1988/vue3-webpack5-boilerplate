@@ -1,22 +1,20 @@
-/**
- * Created by: Andrey Polyakov (andrey@polyakov.im)
- */
-import {arrayFilterEmpty} from '../utils/helpers';
 import {
-    cssLoader,
-    cssLoaderItems,
-    cssModulesSupportLoaderItems,
-    lessLoader,
+    cssLoader, cssLoaderItems, cssModulesSupportLoaderItems, lessLoader,
     miniCssExtractLoader,
     postCssLoader,
-    resolveUrlLoader,
-    sassLoaderItems,
-} from './useLoaderRuleItems';
+    resolveUrlLoader, sassLoaderItems,
+} from "./useLoaderRuleItems";
+import {arrayFilterEmpty} from "../utils/helpers";
 
 /** css **/
 export const cssRule = {
-    test: /\.css$/,
-    use: [miniCssExtractLoader, postCssLoader, resolveUrlLoader, cssLoader],
+    test: /\.(scss|css)$/,
+    use: arrayFilterEmpty([
+        ...cssModulesSupportLoaderItems,
+        postCssLoader,
+        resolveUrlLoader,
+        ...sassLoaderItems,
+    ]),
 };
 
 /** less **/

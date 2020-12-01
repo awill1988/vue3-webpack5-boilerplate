@@ -1,4 +1,3 @@
-import path from 'path';
 import {WebpackOptionsNormalized} from 'webpack';
 import {devServerConfig} from './config';
 

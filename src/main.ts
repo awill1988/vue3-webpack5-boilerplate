@@ -2,11 +2,12 @@ import { createApp } from "vue";
 import App from "@/App.vue";
 import router from "@/router";
 import store from "@/store";
-import vuetify from "@/plugins/vuetify";
-import i18n from "@/plugins/i18n";
+import i18n from "@/i18n";
+import "normalize.css";
+import "@/assets/styles/base.css";
 
-const app = createApp(App);
-
-app.use(store)
+createApp(App)
+    .use(store)
 	.use(router)
+    .use(i18n)
 	.mount("#app");

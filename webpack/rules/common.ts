@@ -1,26 +1,37 @@
-/**
- * Created by: Andrey Polyakov (andrey@polyakov.im)
- */
 import {babelLoader} from './useLoaderRuleItems';
+
+export const vueRule = {
+    test: /\.vue$/,
+    loader: 'vue-loader',
+    options: {
+        compilerOptions: {
+            preserveWhitespace: false
+        }
+    }
+};
 
 /**
  * @see https://webpack.js.org/guides/typescript/#loader
  */
 export const typescriptRule = {
-	test: /\.tsx?$/,
-	loader: 'ts-loader',
-	options: {
-		transpileOnly: true,
-	},
-	exclude: /node_modules/,
+    test : /\.tsx?$/,
+    use: [
+        babelLoader,
+        {
+            loader: 'ts-loader',
+            options: {
+                appendTsSuffixTo: [/\.vue$/],
+            },
+        },
+    ],
 };
+
 /**
  * @see https://webpack.js.org/loaders/babel-loader
  */
 export const javascriptRule = {
-	test: /\.(js|jsx)$/,
-	use: [babelLoader],
-	exclude: /node_modules/,
+    test: /\.(js|jsx)$/,
+    use: [babelLoader]
 };
 
 /**
@@ -39,6 +50,7 @@ export const imagesRule = {
 	test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
 	type: 'asset/resource',
 };
+
 /**
  * @see https://webpack.js.org/guides/asset-modules/
  */

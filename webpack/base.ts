@@ -1,6 +1,5 @@
 import path from 'path';
 import {WebpackOptionsNormalized} from 'webpack';
-
 import {aliasItems, devServerUrl, externalItems} from './config';
 import entry from './entry';
 import optimization from './optimization';
@@ -23,16 +22,17 @@ const config: Partial<WebpackOptionsNormalized> = {
 	},
 	module: {
 		rules: arrayFilterEmpty([
-			rules.javascriptRule,
+		    rules.vueRule,
 			rules.typescriptRule,
+			rules.javascriptRule,
 			rules.htmlRule,
 			rules.imagesRule,
 			rules.fontsRule,
-			rules.cssRule,
-			...rules.lessRules,
-			...rules.sassRules,
-			...rules.svgRules,
-		]),
+            rules.cssRule,
+            ...rules.lessRules,
+            ...rules.sassRules,
+            ...rules.svgRules,
+        ]),
 	},
 	plugins: arrayFilterEmpty([
 		plugins.htmlWebpackPlugin,
@@ -41,10 +41,12 @@ const config: Partial<WebpackOptionsNormalized> = {
 		plugins.forkTsCheckerWebpackPlugin,
 		plugins.esLintPlugin,
 		plugins.copyPlugin,
+        plugins.vueLoaderPlugin,
+        plugins.stylelintPlugin
 	]),
 	resolve: {
 		alias: aliasItems,
-		extensions: ['.tsx', '.ts', '.js', '.jsx'],
+		extensions: ['.tsx', '.ts', '.js', '.jsx', '.json', '.vue', '.css'],
 	},
 	optimization,
 	externals: externalItems,

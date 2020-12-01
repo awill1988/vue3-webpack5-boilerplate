@@ -1,12 +1,9 @@
-/**
- * Created by: Andrey Polyakov (andrey@polyakov.im)
- */
 import {join} from 'path';
 
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import {sassResourceItems} from '../config';
-import {isProd, rootDir, webpackDir} from '../utils/env';
+import {isProd, rootDir} from '../utils/env';
 
 export const cssLoader = {
     loader: 'css-loader',
@@ -26,11 +23,11 @@ export const sassLoaderItems = [
     },
     sassResourceItems.length
         ? {
-              loader: 'sass-resources-loader',
-              options: {
-                  resources: sassResourceItems,
-              },
-          }
+            loader: 'sass-resources-loader',
+            options: {
+                resources: sassResourceItems,
+            },
+        }
         : null,
 ];
 
@@ -38,7 +35,7 @@ export const postCssLoader = {
     loader: 'postcss-loader',
     options: {
         postcssOptions: {
-            config: join(webpackDir, './config/postcss.js'),
+            config: join(rootDir, 'postcss.config.js'),
         },
         sourceMap: true,
     },
@@ -92,12 +89,7 @@ export const typingsCssModulesLoader = {
 /**
  * @see https://webpack.js.org/loaders/sass-loader/#problems-with-url
  */
-export const resolveUrlLoader = {
-    loader: 'resolve-url-loader',
-    options: {
-        sourceMap: true,
-    },
-};
+export const resolveUrlLoader = { loader: 'resolve-url-loader', options: { removeCR: true, sourceMap: true } }
 
 export const babelLoader = {
     loader: 'babel-loader',

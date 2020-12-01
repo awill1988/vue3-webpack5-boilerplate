@@ -6,7 +6,7 @@ import {rootDir} from '../utils/env';
 
 const config = {
     context: join(rootDir, '/src'),
-    extensions: ['js', 'jsx', 'ts', 'tsx'],
+    extensions: ['js', 'jsx', 'ts', 'tsx', '.vue'],
 };
 
 export const esLintPlugin = new ESLintPlugin(config);

@@ -11,16 +11,16 @@ const httpsProxyTarget = {
 };
 
 export const devServerProxyConfig = {
-	'/world-time': {
-		target: `${httpsProxyTarget.protocol}://worldtimeapi.org:${httpsProxyTarget.port}`,
-		pathRewrite: pathRewrite('^/world-time/test', '/api'),
-		changeOrigin: true,
-		secure: false,
-	},
-	'/someurl/test': {
-		target: `${httpsProxyTarget.protocol}://reqres.in:${httpsProxyTarget.port}`,
-		pathRewrite: pathRewrite('^/someurl/test', '/api'),
-		changeOrigin: true,
-		secure: false,
-	},
+	// '/world-time': {
+	// 	target: `${httpsProxyTarget.protocol}://worldtimeapi.org:${httpsProxyTarget.port}`,
+	// 	pathRewrite: pathRewrite('^/world-time/test', '/api'),
+	// 	changeOrigin: true,
+	// 	secure: false,
+	// },
+	// '/someurl/test': {
+	// 	target: `${httpsProxyTarget.protocol}://reqres.in:${httpsProxyTarget.port}`,
+	// 	pathRewrite: pathRewrite('^/someurl/test', '/api'),
+	// 	changeOrigin: true,
+	// 	secure: false,
+	// },
 };

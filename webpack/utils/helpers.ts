@@ -13,7 +13,7 @@ export const parseArguments = (): ParsedArguments => {
 	}, {}) as ParsedArguments;
 };
 
-export const arrayFilterEmpty = (array) => array.filter((x) => !!x);
+export const arrayFilterEmpty = (array: unknown[]): any[] => array.filter((x) => !!x);
 
-export const pathRewrite = (localUrl, remoteUrl) => (path) =>
+export const pathRewrite = (localUrl: string, remoteUrl: string) => (path: string) =>
 	path.replace(new RegExp(localUrl.replace('/', '\\/'), 'g'), remoteUrl);

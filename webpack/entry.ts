@@ -8,8 +8,8 @@ interface EntryStaticNormalized {
 
 const entry: EntryStaticNormalized = {
 	main: [
-		join(rootDir, '/src/index.tsx'),
-		join(__dirname, './utils/cleanConsoleOnHMR.js'),
+		join(rootDir, '/src/main.ts'),
+		// join(__dirname, './utils/cleanConsoleOnHMR.js'),
 	],
 }
 

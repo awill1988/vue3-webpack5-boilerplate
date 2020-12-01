@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "esnext",
+    "module": "esnext",
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
@@ -13,15 +13,21 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["ESNext", "DOM", "DOM.Iterable", "ScriptHost"],
+    "resolveJsonModule": true,
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "baseUrl": "./",
     "rootDir": "./",
-    "typeRoots": ["./node_modules/@types", "./src/@types"]
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "./@types/**/*.d.ts",
+    "./src"
+  ],
+  "exclude": ["node_modules", "webpack"]
 }
